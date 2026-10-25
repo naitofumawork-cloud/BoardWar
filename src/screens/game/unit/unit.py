@@ -1,0 +1,105 @@
+import pygame
+from src.screens.config.config import *
+
+# unitに必要な引数
+
+
+class Unit:
+    def __init__(self,owner,name,type_id,hit_point,attack_point):
+        self.rect = pygame.Rect(0, 0, 80, 80)  # unitもレクトを持つべき
+        #ユニット種固有値
+        self.type_id=type_id
+        self.name = name
+        self.hit_point = hit_point
+        self.attack_point = attack_point
+        
+
+        #可変値
+        self.owner=owner
+        self.current_hit_point=self.hit_point
+        self.current_attack_point=self.attack_point
+        self.xpos = 0
+        self.ypos = 0
+        self.isAlive = True
+        self.instance_id=0
+        
+        match self.element:
+            case "RED":
+                self.color = RED
+            case "GREEN":
+                self.color = GREEN
+            case "BLUE":
+                self.color = BLUE
+            case "YELLOW":
+                self.color = YELLOW
+            case "PURPLE":
+                self.color = PURPLE
+
+    def update(self, is_collide: bool):
+        # 自分の状態などを更新する
+        # 当たれば死ぬ
+        if not is_collide:  # 当たってなければ
+            self.is_alive = True
+        else:
+            self.is_alive = False
+    def attack(self,):
+        print("")
+    def skill(self):
+        print("")
+
+    def draw(self, screen):
+        pygame.draw.rect(screen, (0, 255, 0), self.rect)
+#メモ
+"""
+エルフ
+ドワーフの斧兵
+オーク
+コボルド
+リザードマン
+セイレーン
+ハーピー
+スケルトン
+ゾンビ
+レイス
+バンシー
+デュラハン
+リッチ
+ヴァンパイア
+
+フェニックス
+ワイバーン
+ユニコーン
+キメラ
+グリフォン
+ミノタウロス
+ケンタウロス
+サイクロプス
+コカトリス
+ヒュドラ
+クラーケン
+スライム
+ミミック
+マンティコア
+ガーゴイル
+トレント
+カーバンクル
+
+爆弾魚
+エイリアンクイーン
+インドラ
+インドラダーク
+ドラゴンソーサラー
+ゾーク
+ネクロランナー
+スプリンターゴブリン
+プリースト
+白騎士
+森の狩人
+見習いユウシャ
+青銅の鎧
+
+憑依の魔女
+運命の少女
+月明かりの戦士
+ドラゴン
+"""

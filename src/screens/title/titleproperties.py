@@ -1,0 +1,6 @@
+
+from src.screens.config.config import*
+STARTBTNPOSITION=(WIDTH_HALF,HIGHT_HALF)
+STARTTXT="GameStart"
+STARTBTN_HIGHT=100
+STARTBTN_WIDTH=200
