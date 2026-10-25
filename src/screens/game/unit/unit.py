@@ -23,17 +23,17 @@ class Unit:
         self.isAlive = True
         self.instance_id=0
         
-        match self.element:
-            case "RED":
-                self.color = RED
-            case "GREEN":
-                self.color = GREEN
-            case "BLUE":
-                self.color = BLUE
-            case "YELLOW":
-                self.color = YELLOW
-            case "PURPLE":
-                self.color = PURPLE
+        # match self.element:
+        #     case "RED":
+        #         self.color = RED
+        #     case "GREEN":
+        #         self.color = GREEN
+        #     case "BLUE":
+        #         self.color = BLUE
+        #     case "YELLOW":
+        #         self.color = YELLOW
+        #     case "PURPLE":
+        #         self.color = PURPLE
 
     def update(self, is_collide: bool):
         # 自分の状態などを更新する
@@ -51,6 +51,73 @@ class Unit:
         pygame.draw.rect(screen, (0, 255, 0), self.rect)
 #メモ
 """
+
+エルフ：Elf
+
+ドワーフの斧兵：Dwarf Axeman（複数形: Dwarf Axemen） / Dwarf Axewielder
+
+オーク：Orc
+
+コボルド：Kobold
+
+リザードマン：Lizardman（複数形: Lizardmen）
+
+セイレーン：Siren
+
+ハーピー：Harpy
+
+アンデッド（Undead）
+
+スケルトン：Skeleton
+
+ゾンビ：Zombie
+
+レイス：Wraith
+
+バンシー：Banshee
+
+デュラハン：Dullahan
+
+リッチ：Lich
+
+ヴァンパイア：Vampire
+
+幻獣・モンスター（Monsters & Mythical Creatures）
+
+フェニックス：Phoenix
+
+ワイバーン：Wyvern
+
+ユニコーン：Unicorn
+
+キメラ：Chimera
+
+グリフォン：Gryphon（Griffin とも表記）
+
+ミノタウロス：Minotaur
+
+ケンタウロス：Centaur
+
+サイクロプス：Cyclops
+
+コカトリス：Cockatrice
+
+ヒュドラ：Hydra
+
+クラーケン：Kraken
+
+スライム：Slime
+
+ミミック：Mimic
+
+マンティコア：Manticore
+
+ガーゴイル：Gargoyle
+
+トレント：Treant（または Treant / Ent）
+
+カーバンクル：Carbuncle
+
 エルフ
 ドワーフの斧兵
 オーク

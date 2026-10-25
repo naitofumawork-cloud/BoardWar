@@ -7,5 +7,5 @@ from src.screens.game.unit.unit import*
 
 class Elf(Unit):
     def __init__(self,owner):
-        super().__init__(self,name="elf",type_id=1,hit_point=2,attack_point=1,owner=owner)
+        super().__init__(name="elf",type_id=1,hit_point=2,attack_point=1,owner=owner)
     
