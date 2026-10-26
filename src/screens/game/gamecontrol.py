@@ -39,12 +39,20 @@ class GameControl:
     def allblit(self, screen, txts, txtrects):
         for i, text in enumerate(txts):
             screen.blit(text, txtrects[i])
-
+    def create_allunitlist(self,p1unitlist,p2unitlist):
+        allunitlist=[]
+        for p1unit in p1unitlist:
+            allunitlist.append(p1unit)
+        for p2unit in p2unitlist:
+            allunitlist.append(p2unit)
+        for index in range(len(allunitlist)):
+            allunitlist[index].instance_id=int(index)
+            print("unitname"+str(allunitlist[index].name))
+            print("owner"+str(allunitlist[index].owner))
+            print("id"+str(allunitlist[index].instance_id))
+        return allunitlist
     # 関数説明：メインループ
-    def run(
-        self,
-    ):
-
+    def run(self,):
         # #json関係
         # with open(fuma_path,"r",encoding="utf-8")as file:
         #     fuma=json.load(file)
@@ -82,9 +90,8 @@ class GameControl:
         #def __init__(self,owner,name,type_id,hit_point,attack_point):
         #def __init__(self,owner):
         #super().__init__(self,name="orc",type_id=2,hit_point=3,attack_point=2,owner=owner)
-        elf=Elf("test")
-        orc=Orc("test")
-        allunitlist = [elf(),orc()]
+        
+        sampleunitlist = [Elf,Orc]#インスタンス生成クラスのみリスト
         #プレイヤーのユニットデータをインスタンス化する
         #それぞれのユニットにはオーナー情報が保存される
         #その状態のユニットをplayer1~2全てのユニットインスタンスをリストに入れて
@@ -93,9 +100,13 @@ class GameControl:
         # ゲームに使用する全てのユニットのインスタンスをまとめたリスト作りインスタントな番号を割り当てる
         board = Board(5, 5)
         player1 = Player("first", fuma_path)
-        player1.load_deck(allunitlist)
+        player1.load_deck(sampleunitlist)
         player2 = Player("second", kimu_path)
-        player2.load_deck(allunitlist)
+        player2.load_deck(sampleunitlist)
+        
+        #両プレイヤーの全ユニットを格納
+        allunitList=self.create_allunitlist(player1.unit_list,player2.unit_list)
+        
         # インスタンス化のロジック
 
         bench1 = Bench(5, 1, player1)
