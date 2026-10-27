@@ -46,7 +46,10 @@ class GameControl:
         for p2unit in p2unitlist:
             allunitlist.append(p2unit)
         for index in range(len(allunitlist)):
-            allunitlist[index].instance_id=int(index)
+            allunitlist[index].instance_id=int(index+1)
+            allunitlist[index].location="Bench"
+
+
             print("unitname"+str(allunitlist[index].name))
             print("owner"+str(allunitlist[index].owner))
             print("id"+str(allunitlist[index].instance_id))

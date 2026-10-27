@@ -18,7 +18,7 @@ class Unit:
         self.owner=owner
         self.current_hit_point=self.hit_point
         self.current_attack_point=self.attack_point
-        self.location="Bench"
+        self.location=""
         #ベンチ、ボード、虚無空間
         self.xpos = 0
         self.ypos = 0
