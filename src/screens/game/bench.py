@@ -19,6 +19,7 @@ class Bench:
     
     #ベンチ（持ち駒を置く場所）を描画する処理  
     def drawbench(self,screen,startx,starty):
+        #ベンチの枠の描画
         for row in range(self.y):
             for column in range(self.x):
                 #print("デバッグ")
@@ -31,19 +32,26 @@ class Bench:
                 # rect=pygame.Rect(,,DEFAULTACTORHIGHT,DEFAULTACTORWIDTH)
                 # pygame.draw.rect(screen,BLUE,rect,)
 
+#ベンチの枠を描画する際に駒も描画したい
+#描画関数の引数にベンチの持ち主のユニットリストを渡す
+# ロケーションがベンチのものだけを描画する
 
-    #使わない
-    def drawboard(self,screen):
-        #各レクトに座標を設定する
-        testx=100
-        standard=testx//2#50
-        #50+row*100
-        xlength=self.gridwidth*testx
-        for row in range(self.gridwidth):
-            for column in range(self.gridhight):
-                self.grid[row][column]=Cell(row+1,column+1)
-                # self.grid[row][column]=pygame.Rect(350+row*101,100+column*101,DEFAULTACTORHIGHT,DEFAULTACTORWIDTH)
-                pygame.draw.rect(screen,RED,self.grid[row][column].rect,5)
+    # #ベンチ（持ち駒を置く場所）を描画する処理  
+    # def drawbench(self,screen,startx,starty):
+    #     #ベンチの枠の描画
+    #     for row in range(self.y):
+    #         for column in range(self.x):
+    #             #print("デバッグ")
+    #             #print(row)
+    #             #print(column)
+    #             self.grid[row][column]=Cell(row+1,column+1,startx,starty)
+    #             # self.grid[row][column]=Cell(row+1,column+1,-50,300)
+    #             pygame.draw.rect(screen,self.owner.color,self.grid[row][column].rect,5)
+    #             #テスト
+    #             # rect=pygame.Rect(,,DEFAULTACTORHIGHT,DEFAULTACTORWIDTH)
+    #             # pygame.draw.rect(screen,BLUE,rect,)
+
+
                 
 
 """

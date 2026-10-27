@@ -51,6 +51,10 @@ class GameControl:
             print("owner"+str(allunitlist[index].owner))
             print("id"+str(allunitlist[index].instance_id))
         return allunitlist
+    # def draw_unit(self,allunitlist):
+    #     for unit in allunitlist:
+    #         pygame.draw
+
     # 関数説明：メインループ
     def run(self,):
         # #json関係
@@ -117,11 +121,14 @@ class GameControl:
             # 画面初期化
             screen.fill(WHITE)  # 画面を塗りつぶし
             #!!!!!!!描画処理はこれ以降に書く必要あり!!!!!!!
-
+            #ボードの描画処理
             board.drawboard(screen)
             # ベンチインスタンスの生成
             bench1.drawbench(screen, -50, 95)
             bench2.drawbench(screen, 1000, -90)
+            #ユニットの描画処理
+            # 全ユニットのリストを使って生きてるものだけ各自の場所に描画するallunitlistを使って描画する
+
             # レクト描画
             # まとめてrectdrawする関数
             self.drawallbtn(screen, btnrects, RED)
