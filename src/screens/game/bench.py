@@ -8,7 +8,7 @@ class Bench:
         self.x=x#ベンチの広さ
         self.y=y#ベンチの広さ
         self.owner=owner
-        self.unit_list=[]
+        self.unit_list=owner.unit_list
         #引数で受け取ったプレイヤーのデッキデータをもとにユニットのインスタンスを生成してリスへの代入を行う
         
         self.grid=[[0 for j in range(self.x)] for i in range(self.y)]#引数で指定された広さの二次元配列
@@ -28,6 +28,8 @@ class Bench:
                 self.grid[row][column]=Cell(row+1,column+1,startx,starty)
                 # self.grid[row][column]=Cell(row+1,column+1,-50,300)
                 pygame.draw.rect(screen,self.owner.color,self.grid[row][column].rect,5)
+                self.unit_list[column].rect.center=self.grid[row][column].rect.center
+                pygame.draw.rect(screen,self.owner.color,self.unit_list[column].rect)
                 #テスト
                 # rect=pygame.Rect(,,DEFAULTACTORHIGHT,DEFAULTACTORWIDTH)
                 # pygame.draw.rect(screen,BLUE,rect,)

@@ -33,7 +33,7 @@ class Player:
     def load_deck(self,sampleunitlist):
         #自分のセーブデータのインデックスを使ってallunitlistヲ参照して
         #インスタンスを実体化する
-        print("デバッグ1")
+        # print("デバッグ1")
         #savedata["deck"][index][unit_id]=unitid
         #unitインスタンスを格納したリストを定義
         
@@ -41,25 +41,13 @@ class Player:
             for allunitlistindex in range(len(sampleunitlist)):
                 
                 sample=sampleunitlist[allunitlistindex]("sample")
-                print("sample"+str(sample.type_id))
-                print("save"+str(self.savedata["deck"][savedataindex]["unit_id"]))
+                # print("sample"+str(sample.type_id))
+                # print("save"+str(self.savedata["deck"][savedataindex]["unit_id"]))
                 if self.savedata["deck"][savedataindex]["unit_id"]==sample.type_id:
                     self.unit_list.append(sampleunitlist[allunitlistindex](self.turn_order))
-                    print("デバッグ4")
-                    print(self.unit_list[0].name)
+                    # print("デバッグ4")
+                    # print(self.unit_list[0].name)
                 sample=None
-        print("デバッグ5")
+        # print("デバッグ5")
         
             
-        # for unitid in range(len(self.savedata["deck"])):
-        #     print("デバッグ開始")
-        #     print("インデックスは"+str(unitid))
-        #     print(self.savedata["deck"][unitid]["unit_id"])
-        #     for index in range(len(allunitlist)):
-        #         #self.savedata["deck"][index]["unit_id"]
-        #         if self.savedata["deck"][unitid]["unit_id"]==allunitlist[index]:
-        #             self.unit_list.append(unit=allunitlist[index]())
-        
-        # print(self.unit_list)
-            
-

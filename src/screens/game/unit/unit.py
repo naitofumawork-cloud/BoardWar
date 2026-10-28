@@ -20,6 +20,7 @@ class Unit:
         self.current_attack_point=self.attack_point
         self.location=""
         #ベンチ、ボード、虚無空間
+        self.is_drag=False
         self.xpos = 0
         self.ypos = 0
         self.isAlive = True
@@ -48,6 +49,13 @@ class Unit:
         print("")
     def skill(self):
         print("")
+    """
+    ユニットが動く処理
+    毎ループ呼ばれる
+    今unitのレクトの上にカーソルがある&クリックされているか？=ドラッグ状態か？
+    
+    """
+    
 
     def draw(self, screen):
         pygame.draw.rect(screen, (0, 255, 0), self.rect)

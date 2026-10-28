@@ -47,12 +47,10 @@ class GameControl:
             allunitlist.append(p2unit)
         for index in range(len(allunitlist)):
             allunitlist[index].instance_id=int(index+1)
-            allunitlist[index].location="Bench"
-
-
-            print("unitname"+str(allunitlist[index].name))
-            print("owner"+str(allunitlist[index].owner))
-            print("id"+str(allunitlist[index].instance_id))
+            # allunitlist[index].location="Bench"
+            # print("unitname"+str(allunitlist[index].name))
+            # print("owner"+str(allunitlist[index].owner))
+            # print("id"+str(allunitlist[index].instance_id))
         return allunitlist
     # def draw_unit(self,allunitlist):
     #     for unit in allunitlist:
@@ -113,7 +111,7 @@ class GameControl:
         
         #両プレイヤーの全ユニットを格納
         allunitList=self.create_allunitlist(player1.unit_list,player2.unit_list)
-        
+        allaliveunitList=allunitList
         # インスタンス化のロジック
 
         bench1 = Bench(5, 1, player1)
@@ -139,6 +137,8 @@ class GameControl:
             # レクトテキスト接続関数
             # screen.blit(battletxt,battletxtrect)
             self.allblit(screen, txts, txtrects)
+            #unitが動く処理（テスト）
+            
 
             # 画面を更新
             pygame.display.update()
@@ -153,7 +153,15 @@ class GameControl:
                         print("ゲームステートがバトルに更新されます")
                         self.returnstate = "game"
                         self.is_ok = False
-                ##スイッチが押されたらisOKフラグを下してreturnステートを更新させる
+                    for x in range(len(allaliveunitList)):
+                        if allaliveunitList[x].rect.collidepoint(event.pos):
+                            print(allaliveunitList[x].name)
+                            allaliveunitList[x].is_drag=True
+            print("dd")
+            for x in range(len(allaliveunitList)):
+                if allaliveunitList[x]==True:
+                    print(str(allaliveunitList[x].name)+"はドラッグ中")
+                            
         return self.returnstate
 
 
