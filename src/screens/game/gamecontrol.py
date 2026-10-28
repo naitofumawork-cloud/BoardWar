@@ -157,10 +157,17 @@ class GameControl:
                         if allaliveunitList[x].rect.collidepoint(event.pos):
                             print(allaliveunitList[x].name)
                             allaliveunitList[x].is_drag=True
-            print("dd")
-            for x in range(len(allaliveunitList)):
-                if allaliveunitList[x]==True:
-                    print(str(allaliveunitList[x].name)+"はドラッグ中")
+                elif event.type==pygame.MOUSEBUTTONUP:
+                    print("sss")
+                    for x in range(len(allaliveunitList)):
+                        if allaliveunitList[x].rect==1:
+                            print("離されたのは"+str(allaliveunitList[x].name))
+                            allaliveunitList[x].is_drag=False
+
+            
+            # for x in range(len(allaliveunitList)):
+            #     if allaliveunitList[x].is_drag==True:
+            #         print(str(allaliveunitList[x].name)+"はドラッグ中")
                             
         return self.returnstate
 
