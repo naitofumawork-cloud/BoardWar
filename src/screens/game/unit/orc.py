@@ -7,5 +7,5 @@ from src.screens.game.unit.unit import*
 
 class Orc(Unit):
     def __init__(self,owner):
-        super().__init__(name="orc",type_id=2,hit_point=3,attack_point=2,owner=owner)
+        super().__init__(name="orc",type_id=2,hit_point=3,attack_point=2,owner=owner,color=RED)
     

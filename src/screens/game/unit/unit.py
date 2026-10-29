@@ -5,7 +5,7 @@ from src.screens.config.config import *
 
 
 class Unit:
-    def __init__(self,owner,name,type_id,hit_point,attack_point):
+    def __init__(self,owner,name,type_id,hit_point,attack_point,color):
         self.rect = pygame.Rect(0, 0, 80, 80)  # unitもレクトを持つべき
         #ユニット種固有値
         self.type_id=type_id
@@ -25,18 +25,12 @@ class Unit:
         self.ypos = 0
         self.isAlive = True
         self.instance_id=0
-        
-        # match self.element:
-        #     case "RED":
-        #         self.color = RED
-        #     case "GREEN":
-        #         self.color = GREEN
-        #     case "BLUE":
-        #         self.color = BLUE
-        #     case "YELLOW":
-        #         self.color = YELLOW
-        #     case "PURPLE":
-        #         self.color = PURPLE
+        self.color=color
+        # RED
+        # GREEN
+        # BLUE
+        # YELLOW
+        # PURPLE
 
     def update(self, is_collide: bool):
         # 自分の状態などを更新する

@@ -29,7 +29,7 @@ class Bench:
                 # self.grid[row][column]=Cell(row+1,column+1,-50,300)
                 pygame.draw.rect(screen,self.owner.color,self.grid[row][column].rect,5)
                 self.unit_list[column].rect.center=self.grid[row][column].rect.center
-                pygame.draw.rect(screen,self.owner.color,self.unit_list[column].rect)
+                pygame.draw.rect(screen,self.unit_list[column].color,self.unit_list[column].rect)
                 #テスト
                 # rect=pygame.Rect(,,DEFAULTACTORHIGHT,DEFAULTACTORWIDTH)
                 # pygame.draw.rect(screen,BLUE,rect,)
