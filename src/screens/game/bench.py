@@ -29,47 +29,12 @@ class Bench:
                 # self.grid[row][column]=Cell(row+1,column+1,-50,300)
                 pygame.draw.rect(screen,self.owner.color,self.grid[row][column].rect,5)
                 self.unit_list[column].rect.center=self.grid[row][column].rect.center
+                # self.unit_list[column].rect.ypos=column+1
                 pygame.draw.rect(screen,self.unit_list[column].color,self.unit_list[column].rect)
                 #テスト
-                # rect=pygame.Rect(,,DEFAULTACTORHIGHT,DEFAULTACTORWIDTH)
-                # pygame.draw.rect(screen,BLUE,rect,)
-
-#ベンチの枠を描画する際に駒も描画したい
-#描画関数の引数にベンチの持ち主のユニットリストを渡す
-# ロケーションがベンチのものだけを描画する
-
-    # #ベンチ（持ち駒を置く場所）を描画する処理  
-    # def drawbench(self,screen,startx,starty):
-    #     #ベンチの枠の描画
-    #     for row in range(self.y):
-    #         for column in range(self.x):
-    #             #print("デバッグ")
-    #             #print(row)
-    #             #print(column)
-    #             self.grid[row][column]=Cell(row+1,column+1,startx,starty)
-    #             # self.grid[row][column]=Cell(row+1,column+1,-50,300)
-    #             pygame.draw.rect(screen,self.owner.color,self.grid[row][column].rect,5)
-    #             #テスト
-    #             # rect=pygame.Rect(,,DEFAULTACTORHIGHT,DEFAULTACTORWIDTH)
-    #             # pygame.draw.rect(screen,BLUE,rect,)
-
-
-                
-
-"""
-ボードに必要な所作ユニットが置けるユニットの手持ちを置く台が必要
-処理の実装
-ユニットを置く台でユニットのレクトの上にホバー状態のときにクリックを続けるとドラッグ状態として判定する
-ドラッグ状態はユニットの描画はマスから消えてマウスに追従する形をとる
-ドラッグ中もグリッドのどのマスの上にホバー中か？を判断する
-もし空のマスならそこにユニットは移動する
-内部的には
-台の上にユニットリストからリムーブして
-盤所のユニットリストへムーブする
-そしてその時にユニットインスタンスの座標プロパティは
-ホバーを離したグリッドの座標を代入する
-つまりますめもインスタンスである必要がある
-升目のプロパティ
-XY座標、ユニットが置かれいてるかのフラグ等
-が必要
-"""
+    """
+    座標が変わったときは？
+    dragドロップで話した時のレクトを取得その座標をユニットの座標に上書きする
+    描画は生きてるunitを今の座標にいるレクトとcenter同期して行う
+    """
+    

@@ -153,16 +153,19 @@ class GameControl:
                         print("ゲームステートがバトルに更新されます")
                         self.returnstate = "game"
                         self.is_ok = False
+                    #unitclick
                     for x in range(len(allaliveunitList)):
                         if allaliveunitList[x].rect.collidepoint(event.pos):
                             print(allaliveunitList[x].name)
                             allaliveunitList[x].is_drag=True
+                            allaliveunitList[x].color=allaliveunitList[x].drag_color
                 elif event.type==pygame.MOUSEBUTTONUP:
-                    print("sss")
-                    for x in range(len(allaliveunitList)):
-                        if allaliveunitList[x].rect==1:
-                            print("離されたのは"+str(allaliveunitList[x].name))
-                            allaliveunitList[x].is_drag=False
+                    if event.button==1:
+                        for x in range(len(allaliveunitList)):
+                            if allaliveunitList[x].is_drag==True:
+                                print("外れた")
+                                allaliveunitList[x].color=allaliveunitList[x].default_color
+                                allaliveunitList[x].is_drag=False
 
             
             # for x in range(len(allaliveunitList)):

@@ -26,6 +26,17 @@ class Unit:
         self.isAlive = True
         self.instance_id=0
         self.color=color
+        self.default_color=color
+        if self.color==RED:
+            self.drag_color=RED_DRAG
+        elif self.color==GREEN:
+            self.drag_color=GREEN_DRAG
+        elif self.color==BLUE:
+            self.drag_color=BLUE_DRAG
+        elif self.color==YELLOW:
+            self.drag_color=YELLOW_DRAG
+        elif self.color==PURPLE:
+            self.drag_color=PURPLE_DRAG
         # RED
         # GREEN
         # BLUE

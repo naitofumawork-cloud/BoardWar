@@ -18,9 +18,9 @@ class Player:
         self.turn_order=turn_order#先攻後攻が入る
         
         if self.turn_order=="first":
-            self.color=RED
+            self.color=DARKRED
         elif self.turn_order=="second":
-            self.color=BLUE
+            self.color=DARKBLUE
         self.unit_list=[]
         #json関係
         with open(savedatapath,"r",encoding="utf-8")as file:
