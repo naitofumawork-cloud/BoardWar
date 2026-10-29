@@ -56,6 +56,12 @@ class GameControl:
     #     for unit in allunitlist:
     #         pygame.draw
 
+    
+    def unit_draw(self, screen,allaliveunitList):
+        for x in range(len(allaliveunitList)):
+            # pygame.draw.rect(screen,self.unit_list[column].color,self.unit_list[column].rect)
+            pygame.draw.rect(screen,allaliveunitList[x].color,allaliveunitList[x].rect)
+
     # 関数説明：メインループ
     def run(self,):
         # #json関係
@@ -114,8 +120,8 @@ class GameControl:
         allaliveunitList=allunitList
         # インスタンス化のロジック
 
-        bench1 = Bench(5, 1, player1)
-        bench2 = Bench(5, 1, player2)
+        bench1 = Bench(5, 1, player1, -50, 95)
+        bench2 = Bench(5, 1, player2, 1000, -90)
         while self.is_ok == True:
             # タイトル画面の描画
             pygame.time.wait(1)
@@ -125,10 +131,13 @@ class GameControl:
             #ボードの描画処理
             board.drawboard(screen)
             # ベンチインスタンスの生成
-            bench1.drawbench(screen, -50, 95)
-            bench2.drawbench(screen, 1000, -90)
+            # bench1.drawbench(screen, -50, 95)
+            # bench2.drawbench(screen, 1000, -90)
+            bench1.drawbench(screen)
+            bench2.drawbench(screen)
             #ユニットの描画処理
             # 全ユニットのリストを使って生きてるものだけ各自の場所に描画するallunitlistを使って描画する
+            self.unit_draw(screen,allaliveunitList)
 
             # レクト描画
             # まとめてrectdrawする関数
@@ -166,6 +175,7 @@ class GameControl:
                                 print("外れた")
                                 allaliveunitList[x].color=allaliveunitList[x].default_color
                                 allaliveunitList[x].is_drag=False
+                                bench1.unit_list.pop(1)
 
             
             # for x in range(len(allaliveunitList)):

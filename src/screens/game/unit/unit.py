@@ -23,6 +23,7 @@ class Unit:
         self.is_drag=False
         self.xpos = 0
         self.ypos = 0
+        self.bench_index=0
         self.isAlive = True
         self.instance_id=0
         self.color=color
@@ -62,8 +63,10 @@ class Unit:
     """
     
 
-    def draw(self, screen):
-        pygame.draw.rect(screen, (0, 255, 0), self.rect)
+    def draw(self, screen,allaliveunitList):
+        for x in range(len(allaliveunitList)):
+            # pygame.draw.rect(screen,self.unit_list[column].color,self.unit_list[column].rect)
+            pygame.draw.rect(screen,self.unit_list[x].color,self.unit_list[x].rect)
 #メモ
 """
 
