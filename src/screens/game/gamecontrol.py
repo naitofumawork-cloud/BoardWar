@@ -175,7 +175,9 @@ class GameControl:
                                 print("外れた")
                                 allaliveunitList[x].color=allaliveunitList[x].default_color
                                 allaliveunitList[x].is_drag=False
+                                print(len(bench1.unit_list))
                                 bench1.unit_list.pop(1)
+                                print(len(bench1.unit_list))
 
             
             # for x in range(len(allaliveunitList)):

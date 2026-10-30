@@ -63,6 +63,7 @@ class Unit:
     """
     
 
+
     def draw(self, screen,allaliveunitList):
         for x in range(len(allaliveunitList)):
             # pygame.draw.rect(screen,self.unit_list[column].color,self.unit_list[column].rect)
