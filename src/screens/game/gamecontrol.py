@@ -118,6 +118,8 @@ class GameControl:
         #両プレイヤーの全ユニットを格納
         allunitList=self.create_allunitlist(player1.unit_list,player2.unit_list)
         allaliveunitList=allunitList
+        #ドラッグ中のユニット
+        dragging_unit=""
         # インスタンス化のロジック
 
         bench1 = Bench(5, 1, player1, -50, 95)
@@ -163,21 +165,29 @@ class GameControl:
                         self.returnstate = "game"
                         self.is_ok = False
                     #unitclick
+                # マウスボタンを押したとき（ドラッグ開始）
+                elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+                    #各マスのレクトを走査してコライド判定をする
                     for x in range(len(allaliveunitList)):
                         if allaliveunitList[x].rect.collidepoint(event.pos):
                             print(allaliveunitList[x].name)
                             allaliveunitList[x].is_drag=True
                             allaliveunitList[x].color=allaliveunitList[x].drag_color
+                            dragging_unit=allaliveunitList[x]
+                            
                 elif event.type==pygame.MOUSEBUTTONUP:
+                    #マウスが離れた時
                     if event.button==1:
-                        for x in range(len(allaliveunitList)):
-                            if allaliveunitList[x].is_drag==True:
-                                print("外れた")
-                                allaliveunitList[x].color=allaliveunitList[x].default_color
-                                allaliveunitList[x].is_drag=False
-                                print(len(bench1.unit_list))
-                                bench1.unit_list.pop(1)
-                                print(len(bench1.unit_list))
+                        if dragging_unit==True:
+                            for x in range(len(allaliveunitList)):
+                                if allaliveunitList[x].is_drag==True:
+                                    print("外れた")
+                                    allaliveunitList[x].color=allaliveunitList[x].default_color
+                                    allaliveunitList[x].is_drag=False
+                                    dragging_unit=""
+                                    print(len(bench1.unit_list))
+                                    bench1.unit_list.pop(0)
+                                    print(len(bench1.unit_list))
 
             
             # for x in range(len(allaliveunitList)):
